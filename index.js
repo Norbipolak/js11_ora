@@ -41,7 +41,7 @@ console.log(UrlPlusPath) -> http://127.0.0.1:8080 és utána tudjuk hozzáfüzni
 hisory.pishState(null, "", urlPlusPath + productUrl)
 
 Azt kell megnézni a dummyjson-on, hogyan tudunk rákeresni a dolgokra ->search product 
-bármire ré tud keresni q=valami -> a q(query segítségével)
+bármire rá tud keresni q=valami -> a q(query segítségével)
 csak egy valamire tud rákeresni, szóval amit eddig csináltunk azt itt nem tudjuk alkalmazni
 ********************************************************************************************************************************************* 
 */
@@ -86,7 +86,7 @@ async searchProduct() {
 
 /*
 Lett egy olyan mezőnk a 127.0.0.1:/8080, hogy Keresési kifejezés a Márka helyett 
-és ha most ide beírunk valamit, pl. azt, hogy asdf és rányuomunk a keresés gombunkra
+és ha most ide beírunk valamit, pl. azt, hogy asdf és rányumunk a keresés gombunkra
 akkor megváltozik az Url-ünk -> 127.0.0.1:8080/searchParam=asdf -re 
 és ha console.log(searhcParam);, akkor a console-on megjelenik az asdf
 
@@ -115,7 +115,7 @@ kitöröltünk mindent, csak az egyetlen input mezőnk a keresési feltételek l
     <input type="text" id="searchParam">
 </div>
 <div>
-    <h4>eresés</h4>
+    <h4>Keresés</h4>
     <button id="search">Keresés!</button>
 </div>
 
@@ -140,7 +140,8 @@ if(location.pathname === "/" || location.pathname === "/index.html") {
         //meg kell nézni, hogy fog reagálni, az összeset kihozza-e -> igen, ha a keresési feltételbe nem írunk semmit, akkor az összeset kihozza
         // csinálhatnánk itt egy hasonlót searchParam !== null ? "?q=" + searchParam : "";
         //productUrl = productUrl.substring(0, productUrl.length-1); -> az itt nem is szükséges
-        history.pushState(null, "", urlPlusPath + productUrl); //megváltozik a pushState által az url-ünk
+        history.pushState(null, "", urlPlusPath + productUrl); //megváltozik a pushState által az url-ünk anélkül, hogy újratöltödne az oldal
+        
         p.searchProduct();
     });
 }
